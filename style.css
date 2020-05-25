@@ -1,0 +1,85 @@
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face{
+
+    font-family: 'The Historia demo';
+    src: url(TheHistoriaDemo.otf);
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #fff;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    border-radius: .8rem;
+    background: #562974;
+  }
+
+
+canvas {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.area {
+    position: relative;
+    z-index: 3;
+    margin-top: -225px;
+    justify-content: center;
+    text-align: center;
+    padding-top: 40vh;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Raleway', sans-serif;
+}
+.area div {
+    margin: 0 auto;
+    width: 60%;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.area h1 {
+    font-family: 'The Historia demo', sans-serif;
+    font-size: 160px;
+    color: #562974;
+}
+.area h2 {
+    margin-top: -180px;
+    font-size: 60px;
+    font-weight: 400;
+    color: #562974;
+}
+.area p {
+    margin-top: -50px;
+    font-size: 30px;
+    font-weight: 400;
+    color: #562974;
+}
+.area h4 {
+    margin-top: -20px;
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+.area h4 i {
+    color: #562974;
+}
+.area h4 i:hover {
+    color: #8a54ad;
+}
+#snake {
+    width: 100%;
+    height: 100vh;
+}
