@@ -22,6 +22,13 @@ var colorArray = [
     '#6B4C7F',
 ];
 
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
 window.addEventListener('mousemove', function(event) {
     mouse.x = event.x;
     mouse.y = event.y; 
@@ -110,6 +117,7 @@ function animate() {
 
 init();
 animate();
+
 
 const snakee = document.querySelector('#canvasTwo');
 const ctx = snakee.getContext("2d");
@@ -250,7 +258,7 @@ function draw(){
     
     snake.unshift(newHead);
     
-    ctx.fillStyle = "#a9fa96";
+    ctx.fillStyle = "#562974";
     ctx.font = "45px Changa one";
     ctx.fillText(score,2*box,1.6*box);
 }
@@ -258,3 +266,8 @@ function draw(){
 // call draw function every 100 ms
 
 let game = setInterval(draw,100);
+
+AOS.init({
+    easin: 'ease',
+    duration: 1800
+});

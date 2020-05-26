@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SD | CANVAS PPACTICE</title>
     <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -23,15 +24,33 @@
     <div id="snake">
         <div class="snake-game">
             <div class="canvas-two">
-                <canvas id="canvasTwo" width="608" height="608"></canvas>
+                <canvas id="canvasTwo" width="608" height="608" data-aos="fade-right" data-aos-delay="300"></canvas>
             </div>
-            <div class="game-info">
-
+            <div class="game-info" data-aos="fade-left" data-aos-delay="300">
+                <h6>Canvas Game</h6>
+                    <h1>Snake Game</h1>
+                    <p>
+                        The OG Snake Game, which used to come preinstalled in old Nokia Phones.
+                        The controls are pritty simple, the snake moves by the arrow keys Up, Down, Left and Right.
+                        The Game also suppotes Audio, So Sound On and enjoy the game.
+                    </p>
+                    <h4><a href="#run"><i class="fas fa-chevron-down size:3x"></i></a></h4>
             </div>
         </div>
     </div>
-    
+    <div id="run">
 
-    <script src="canvas.js" ></script>
+    </div>
+    <div class="small">
+        <div>
+            <h1>Sorry</h1>
+            <h2>Screen Size Not Supported</h2>
+            <p>(This Web page can only work on screen size more than 1180px width)</p>
+            <a href="../index.html"><button>Go Back</button></a>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="main.js" ></script>
 </body>
 </html>
