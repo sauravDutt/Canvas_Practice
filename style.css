@@ -132,6 +132,13 @@ canvas {
 .game-info h4 i:hover {
     color: #8a54ad;
 }
+#run {
+    width: 100%;
+    height: 40vh;
+}
+#canvasThree {
+    margin-top: 220vh;
+}
 
 .small {
     background-color: #fff;

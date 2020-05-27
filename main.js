@@ -267,6 +267,78 @@ function draw(){
 
 let game = setInterval(draw,100);
 
+
+// Bike Game
+const bike = document.querySelector('#canvasThree');
+
+
+bike.width = window.innerWidth;
+bike.height = 300;
+const ctxbike = bike.getContext('2d');
+
+var perm = [];
+while(perm.length < 255) {
+    while(perm.includes(val = Math.floor(Math.random()*255)));
+    perm.push(val);
+}
+
+var lerp = (a,b,t) => a + (b-a) * (1-Math.cos(t*Math.PI))/2;
+var noise = x => {
+    x = x * 0.01 % 255;
+    return lerp(perm[Math.floor(x)], perm[Math.ceil(x)], x - Math.floor(x));
+}
+
+var player = new function() {
+    this.x = bike.width/2;
+    this.y = 0;
+    this.ySpeed = 0;
+    this.rot = 0;
+
+    this.img = new Image();
+    this.img.src = "img/moto.png";
+    this.draw = function() {
+        var p1 = bike.height - noise(t + this.x) * 0.25
+        var p2 = bike.height - noise(t+5 + this.x) * 0.25
+        if (p1-15 > this.y) {
+            this.ySpeed += 0.1;
+        }else {
+            this.ySpeed -= this.y - (p1-15);
+            this.y = p1-15;
+        }
+        var angle = Math.atan2((p2-15) - this.y, (this.x + 5) - this.x);
+        this.y += this.ySpeed;
+
+        ctxbike.save();
+        ctxbike.translate(this.x, this.y);
+        ctxbike.rotate(this.rot);
+        ctxbike.drawImage(this.img, -15, -15, 60, 50);
+        ctxbike.restore();
+    }
+}
+
+var t = 0;
+function loop() {
+    t += 5;
+    ctxbike.fillStyle = "#fff";
+    ctxbike.fillRect (0, 0, bike.width, bike.height);
+
+    ctxbike.fillStyle = "#8a54ad"
+    ctxbike.beginPath();
+    ctxbike.moveTo(0, bike.height);
+    for (let i = 0; i < bike.width; i++)
+        ctxbike.lineTo(i, bike.height - noise(t + i) * 0.25);
+
+    
+    ctxbike.lineTo(bike.width, bike.height);
+    ctxbike.fill();
+
+    player.draw();
+    requestAnimationFrame(loop);
+}
+
+loop();
+
+
 AOS.init({
     easin: 'ease',
     duration: 1800
