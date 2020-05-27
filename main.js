@@ -284,7 +284,7 @@ while(perm.length < 255) {
 
 var lerp = (a,b,t) => a + (b-a) * (1-Math.cos(t*Math.PI))/2;
 var noise = x => {
-    x = x * 0.01 % 255;
+    x = x * 0.006 % 255;
     return lerp(perm[Math.floor(x)], perm[Math.ceil(x)], x - Math.floor(x));
 }
 
@@ -311,7 +311,7 @@ var player = new function() {
         ctxbike.save();
         ctxbike.translate(this.x, this.y);
         ctxbike.rotate(this.rot);
-        ctxbike.drawImage(this.img, -15, -15, 60, 50);
+        ctxbike.drawImage(this.img, -15, -15, 70, 55);
         ctxbike.restore();
     }
 }
